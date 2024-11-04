@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AiVPP588nME=",
+  "dgSpecHash": "ovXG+bvcBjQ=",
   "success": true,
-  "projectFilePath": "c:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj",
+  "projectFilePath": "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mrjoe\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.10\\microsoft.aspnetcore.authentication.jwtbearer.8.0.10.nupkg.sha512",
     "C:\\Users\\mrjoe\\.nuget\\packages\\microsoft.bcl.timeprovider\\8.0.1\\microsoft.bcl.timeprovider.8.0.1.nupkg.sha512",
