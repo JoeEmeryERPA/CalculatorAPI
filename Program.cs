@@ -1,76 +1,39 @@
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using CalculatorAPI.Add;
+//using CalculatorAPI.Subtract;
+//using CalculatorAPI.Multiply;
+//using CalculatorAPI.Divide;
+using CalculatorAPI.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllers();
-
-// Configure JWT authentication
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = "YourIssuer", // Replace with your issuer
-        ValidAudience = "YourAudience", // Replace with your audience
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("YourSuperSecretKeyHere1331451515151231")) // Use a secure key
-    };
-});
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Add Swagger services
 builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddSwaggerGen(options =>
 {
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    options.SwaggerDoc("v1", new OpenApiInfo
     {
-        In = ParameterLocation.Header,
-        Description = "Please enter token",
-        Type = SecuritySchemeType.Http,
-        BearerFormat = "JWT",
-        Scheme = "bearer"
-    });
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme 
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            }, new string[] {}
-        }
+        Version = "v1",
+        Title = "Calculator API",
+        Description = "A simple API for basic arithmetic operations"
     });
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// Register each endpoint
+app.MapAddEndpoint();
+//app.MapSubtractEndpoint();
+//app.MapMultiplyEndpoint();
+//app.MapDivideEndpoint();
+app.MapJWTAuthEndpoint(app.Configuration); // Pass configuration to the JWT endpoint
+
+// Enable Swagger
+app.UseSwagger();
+app.UseSwaggerUI(options =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-// Add authentication middleware
-app.UseAuthentication(); // Ensure this is called before UseAuthorization
-app.UseAuthorization();
-
-app.MapControllers();
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Calculator API V1");
+    options.RoutePrefix = "swagger"; // Access Swagger at `/swagger`
+});
 
 app.Run();

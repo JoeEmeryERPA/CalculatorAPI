@@ -39,3 +39,5 @@ c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bi
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\Ardalis.ApiEndpoints.dll
+c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\obj\Debug\net8.0\CalculatorAPI.sourcelink.json
