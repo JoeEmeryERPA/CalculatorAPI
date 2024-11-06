@@ -1,15 +1,11 @@
-using Microsoft.AspNetCore.Builder;
-
 namespace CalculatorAPI.Add
 {
     public static class AddEndpoint
     {
         public static void MapAddEndpoint(this WebApplication app)
         {
-            app.MapGet("/api/calculate/add", (double num1, double num2) =>
-            {
-                return Results.Ok(new { Operation = "Addition", Result = num1 + num2 });
-            });
+            app.MapGet("/api/calculate/add", (int a, int b) => Results.Ok(new { Result = a + b }))
+               .RequireAuthorization(); // Require JWT authorization for Add
         }
     }
 }
