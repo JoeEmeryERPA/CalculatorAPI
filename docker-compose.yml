@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  calculatorapi:
+    image: calculatorapi:latest
+    ports:
+      - "8080:80"  # Map host's port 8080 to container's port 80
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: any

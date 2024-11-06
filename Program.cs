@@ -3,13 +3,15 @@ using CalculatorAPI.Auth;
 //using CalculatorAPI.Subtract;
 //using CalculatorAPI.Multiply;
 //using CalculatorAPI.Divide;
-using CalculatorAPI.Auth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure the URLs the app should listen to
+builder.WebHost.UseUrls("http://0.0.0.0:80");  // Bind to all network interfaces on port 80
 
 // Configure JWT Authentication
 builder.Services.AddAuthentication(options =>
@@ -78,3 +80,6 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.Run();
+
+// deploy docker stack: docker stack deploy -c docker-compose.yml mystack
+//docker stack rm mystack
