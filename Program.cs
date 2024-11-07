@@ -1,8 +1,8 @@
 using CalculatorAPI.Add;
 using CalculatorAPI.Auth;
-//using CalculatorAPI.Subtract;
-//using CalculatorAPI.Multiply;
-//using CalculatorAPI.Divide;
+// using CalculatorAPI.Subtract;
+// using CalculatorAPI.Multiply;
+// using CalculatorAPI.Divide;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -10,8 +10,8 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure the URLs the app should listen to
-builder.WebHost.UseUrls("http://0.0.0.0:80");  // Bind to all network interfaces on port 80
+// Configure the URLs the app should listen to in Docker
+builder.WebHost.UseUrls("http://0.0.0.0:80");
 
 // Configure JWT Authentication
 builder.Services.AddAuthentication(options =>
@@ -66,20 +66,18 @@ var app = builder.Build();
 
 // Enable authentication and authorization middleware
 app.UseAuthentication();
-app.UseAuthorization(); // Ensure this comes after UseAuthentication
+app.UseAuthorization();
 
-// Map endpoints from each namespace
-app.MapJWTAuthEndpoint(builder.Configuration);  // Map the JWT auth endpoint
+// Map endpoints for each namespace
+app.MapGet("/", () => "Calculator API is running");  // Health check endpoint for debugging
+app.MapJWTAuthEndpoint(builder.Configuration);
 app.MapAddEndpoint();
-//app.MapSubtractEndpoint();
-//app.MapMultiplyEndpoint();
-//app.MapDivideEndpoint();
+// app.MapSubtractEndpoint();
+// app.MapMultiplyEndpoint();
+// app.MapDivideEndpoint();
 
 // Enable Swagger UI
 app.UseSwagger();
 app.UseSwaggerUI();
 
 app.Run();
-
-// deploy docker stack: docker stack deploy -c docker-compose.yml mystack
-//docker stack rm mystack

@@ -7,5 +7,8 @@ services:
       - "8080:80"  # Map host's port 8080 to container's port 80
     deploy:
       replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
       restart_policy:
-        condition: any
+        condition: on-failure

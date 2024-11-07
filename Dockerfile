@@ -18,7 +18,7 @@ COPY --from=build-env /app/out .
 # Set environment variables for JWT configuration (or you can set these in a secrets manager later)
 ENV JWT__Issuer="YourIssuer"
 ENV JWT__Audience="YourAudience"
-ENV JWT__SecretKey="YourSecretKey"
+ENV JWT__SecretKey="YourSuperSecretKeyHere1331451515151231"
 ENV JWT__ExpiryInMinutes="60"
 
 # Expose port 80
