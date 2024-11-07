@@ -1,0 +1,28 @@
+using Xunit;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Testing;
+
+public class CalculatorApiIntegrationTests : IClassFixture<WebApplicationFactory<ButterflyWebAPI.Startup>>
+{
+    private readonly HttpClient _client;
+
+    public CalculatorApiIntegrationTests(WebApplicationFactory<ButterflyWebAPI.Startup> factory)
+    {
+        _client = factory.CreateClient();
+    }
+
+    [Fact]
+    public async Task AddEndpoint_ReturnsCorrectSum()
+    {
+        // Arrange
+        var response = await _client.GetAsync("/api/calculate/add?number1=5&number2=3");
+
+        // Act
+        response.EnsureSuccessStatusCode();
+        var result = await response.Content.ReadAsStringAsync();
+
+        // Assert
+        Assert.Equal("8", result);
+    }
+}
