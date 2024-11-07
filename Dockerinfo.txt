@@ -1,0 +1,17 @@
+Initialize Docker Swarm:
+docker swarm init
+
+build docker image:
+docker build -t calculatorapi:latest .
+
+deploy stack to swarm:
+docker stack deploy -c docker-compose.yml mystack
+
+List stack and svcs:
+docker stack services mystack
+
+List container status:
+docker service ps mystack_calculatorapi
+
+remove stack:
+docker service ps mystack_calculatorapi
