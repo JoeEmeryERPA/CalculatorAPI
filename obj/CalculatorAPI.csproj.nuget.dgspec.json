@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj": {}
+    "c:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj": {
+    "c:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj",
+        "projectUniqueName": "c:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj",
         "projectName": "CalculatorAPI",
-        "projectPath": "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj",
+        "projectPath": "c:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj",
         "packagesPath": "C:\\Users\\mrjoe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\obj\\",
+        "outputPath": "c:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrjoe\\AppData\\Roaming\\NuGet\\NuGet.Config"

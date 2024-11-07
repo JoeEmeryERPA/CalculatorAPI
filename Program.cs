@@ -10,8 +10,13 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure the URLs the app should listen to in Docker
-builder.WebHost.UseUrls("http://0.0.0.0:80");
+// Configure the URLs the app should listen to in Docker, 8080 for dev, 80 when not in dev, to the docker container exposed port
+if(builder.Environment.IsDevelopment())
+{
+builder.WebHost.UseUrls("http://0.0.0.0:8080");
+}
+else
+{builder.WebHost.UseUrls("http://0.0.0.0:80");}
 
 // Configure JWT Authentication
 builder.Services.AddAuthentication(options =>

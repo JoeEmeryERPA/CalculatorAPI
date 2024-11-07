@@ -14,4 +14,4 @@ List container status:
 docker service ps mystack_calculatorapi
 
 remove stack:
-docker service ps mystack_calculatorapi
+docker swarm leave --force
