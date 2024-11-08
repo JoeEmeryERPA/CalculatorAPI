@@ -1,76 +1,98 @@
-using Microsoft.OpenApi.Models;
+using CalculatorAPI.Add;
+using CalculatorAPI.Auth;
+using CalculatorAPI.Subtract;
+using CalculatorAPI.Multiply;
+using CalculatorAPI.Divide;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace CalculatorAPI.MainProgram;
 
-// Add services to the container.
-builder.Services.AddControllers();
-
-// Configure JWT authentication
-builder.Services.AddAuthentication(options =>
+public class Program
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
+    public static void Main(string[] args)
     {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = "YourIssuer", // Replace with your issuer
-        ValidAudience = "YourAudience", // Replace with your audience
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("YourSuperSecretKeyHere1331451515151231")) // Use a secure key
-    };
-});
+        var builder = WebApplication.CreateBuilder(args);
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-
-builder.Services.AddSwaggerGen(options =>
-{
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        In = ParameterLocation.Header,
-        Description = "Please enter token",
-        Type = SecuritySchemeType.Http,
-        BearerFormat = "JWT",
-        Scheme = "bearer"
-    });
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
+        // Configure the URLs the app should listen to in Docker, 8080 for dev, 80 when not in dev, to the docker container exposed port
+        if (builder.Environment.IsDevelopment())
         {
-            new OpenApiSecurityScheme 
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            }, new string[] {}
+            builder.WebHost.UseUrls("http://0.0.0.0:8080");
         }
-    });
-});
+        else
+        {
+            builder.WebHost.UseUrls("http://0.0.0.0:80");
+        }
 
-var app = builder.Build();
+        // Configure JWT Authentication
+        builder.Services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(options =>
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = builder.Configuration["JWT:Issuer"],
+                ValidAudience = builder.Configuration["JWT:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SecretKey"]))
+            };
+        });
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+        // Add Authorization
+        builder.Services.AddAuthorization();
+
+        // Configure Swagger with JWT support
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen(options =>
+        {
+            options.SwaggerDoc("v1", new OpenApiInfo { Title = "Calculator API", Version = "v1" });
+            options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                In = ParameterLocation.Header,
+                Description = "Please enter token",
+                Name = "Authorization",
+                Type = SecuritySchemeType.Http,
+                BearerFormat = "JWT",
+                Scheme = "bearer"
+            });
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
+                    },
+                    Array.Empty<string>()
+                }
+            });
+        });
+
+        var app = builder.Build();
+
+        // Enable authentication and authorization middleware
+        app.UseAuthentication();
+        app.UseAuthorization();
+
+        // Map endpoints for each namespace
+        app.MapJWTAuthEndpoint(builder.Configuration);
+        app.MapGet("/HealthCheck", () => "Calculator API is running");  // Health check endpoint for debugging
+        app.MapAddEndpoint();
+        app.MapSubtractEndpoint();
+        app.MapMultiplyEndpoint();
+        app.MapDivideEndpoint();
+
+        // Enable Swagger UI
+        app.UseSwagger();
+        app.UseSwaggerUI();
+
+        app.Run();
+    }
 }
-
-app.UseHttpsRedirection();
-
-// Add authentication middleware
-app.UseAuthentication(); // Ensure this is called before UseAuthorization
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
