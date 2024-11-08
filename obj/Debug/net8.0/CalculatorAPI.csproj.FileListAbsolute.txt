@@ -42,6 +42,7 @@ c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bi
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\Ardalis.ApiEndpoints.dll
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\obj\Debug\net8.0\CalculatorAPI.sourcelink.json
 <<<<<<< HEAD
+<<<<<<< HEAD
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\MvcTestingAppManifest.json
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\refs\Microsoft.AspNetCore.Antiforgery.dll
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
@@ -359,5 +360,7 @@ c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bi
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\obj\Debug\net8.0\MvcTestingAppManifest.json
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
+=======
+>>>>>>> parent of b7464b6 (Stable, did some logging improvements - ready for testing to be added)
 =======
 >>>>>>> parent of b7464b6 (Stable, did some logging improvements - ready for testing to be added)

@@ -1,7 +1,11 @@
 {
   "version": 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "nawJughRQ9E=",
+=======
+  "dgSpecHash": "xMgkCu8fSB4=",
+>>>>>>> parent of b7464b6 (Stable, did some logging improvements - ready for testing to be added)
 =======
   "dgSpecHash": "xMgkCu8fSB4=",
 >>>>>>> parent of b7464b6 (Stable, did some logging improvements - ready for testing to be added)
