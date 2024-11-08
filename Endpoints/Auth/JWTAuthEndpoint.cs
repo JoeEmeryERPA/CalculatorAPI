@@ -23,7 +23,7 @@ namespace CalculatorAPI.Auth
             });
         }
 
-        private static string GenerateJwtToken(string username, IConfiguration configuration)
+        public static string GenerateJwtToken(string username, IConfiguration configuration)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:SecretKey"]));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj": {}
+    "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj": {}
   },
   "projects": {
-    "c:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj": {
+    "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj",
+        "projectUniqueName": "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj",
         "projectName": "CalculatorAPI",
-        "projectPath": "c:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj",
+        "projectPath": "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj",
         "packagesPath": "C:\\Users\\mrjoe\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\obj\\",
+        "outputPath": "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrjoe\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -59,9 +59,21 @@
               "target": "Package",
               "version": "[8.2.0, )"
             },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.11.0, )"
+            },
+            "Microsoft.TestPlatform": {
+              "target": "Package",
+              "version": "[17.11.0, )"
+            },
             "Moq": {
               "target": "Package",
               "version": "[4.20.72, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

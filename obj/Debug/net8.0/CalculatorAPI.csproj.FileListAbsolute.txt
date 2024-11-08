@@ -357,3 +357,4 @@ c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bi
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\xunit.execution.dotnet.dll
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\obj\Debug\net8.0\MvcTestingAppManifest.json
+c:\Users\mrjoe\OneDrive\Writing a dissertation\Documents\GitHub\CalculatorAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
