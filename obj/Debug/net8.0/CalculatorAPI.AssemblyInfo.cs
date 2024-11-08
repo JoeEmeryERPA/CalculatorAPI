@@ -13,19 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CalculatorAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7464b66b40940f1e7cd5f3333f149f3c6f15448")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6acd705c86b264304dce6a9cb6423d66f6107bfa")]
->>>>>>> parent of b7464b6 (Stable, did some logging improvements - ready for testing to be added)
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6acd705c86b264304dce6a9cb6423d66f6107bfa")]
->>>>>>> parent of b7464b6 (Stable, did some logging improvements - ready for testing to be added)
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85e62fc8f9893ae519e6ae3ea7133705da3b41bb")]
->>>>>>> parent of 7ded7e5 (Push & Publish)
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e1558a2d313983b81efd2c1d0a47375005b8506")]
 [assembly: System.Reflection.AssemblyProductAttribute("CalculatorAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CalculatorAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
