@@ -1,14 +1,16 @@
 using CalculatorAPI.Add;
 using CalculatorAPI.Auth;
-// using CalculatorAPI.Subtract;
-// using CalculatorAPI.Multiply;
-// using CalculatorAPI.Divide;
+using CalculatorAPI.Subtract;
+using CalculatorAPI.Multiply;
+using CalculatorAPI.Divide;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 
-public static class Program
+namespace CalculatorAPI.MainProgram;
+
+public class Program
 {
     public static void Main(string[] args)
     {
@@ -80,12 +82,12 @@ public static class Program
         app.UseAuthorization();
 
         // Map endpoints for each namespace
-        app.MapGet("/", () => "Calculator API is running");  // Health check endpoint for debugging
         app.MapJWTAuthEndpoint(builder.Configuration);
+        app.MapGet("/HealthCheck", () => "Calculator API is running");  // Health check endpoint for debugging
         app.MapAddEndpoint();
-        // app.MapSubtractEndpoint();
-        // app.MapMultiplyEndpoint();
-        // app.MapDivideEndpoint();
+        app.MapSubtractEndpoint();
+        app.MapMultiplyEndpoint();
+        app.MapDivideEndpoint();
 
         // Enable Swagger UI
         app.UseSwagger();

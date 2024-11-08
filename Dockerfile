@@ -1,4 +1,4 @@
-# Stage 1: Build
+#: Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
@@ -10,12 +10,12 @@ RUN dotnet restore
 COPY . ./
 RUN dotnet publish -c Release -o out
 
-# Stage 2: Run
+# : Run
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build-env /app/out .
 
-# Set environment variables for JWT configuration (or you can set these in a secrets manager later)
+# Set environment variables for JWT configuration 
 ENV JWT__Issuer="YourIssuer"
 ENV JWT__Audience="YourAudience"
 ENV JWT__SecretKey="YourSuperSecretKeyHere1331451515151231"
