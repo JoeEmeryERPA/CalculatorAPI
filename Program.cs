@@ -8,9 +8,26 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 
+<<<<<<< HEAD
 public class Program
 {
     public static void Main(string[] args)
+=======
+var builder = WebApplication.CreateBuilder(args);
+
+// Configure the URLs the app should listen to in Docker
+builder.WebHost.UseUrls("http://0.0.0.0:80");
+
+// Configure JWT Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+>>>>>>> parent of b7464b6 (Stable, did some logging improvements - ready for testing to be added)
     {
         var builder = WebApplication.CreateBuilder(args);
 

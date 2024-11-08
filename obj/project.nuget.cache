@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "nawJughRQ9E=",
+=======
+  "dgSpecHash": "xMgkCu8fSB4=",
+>>>>>>> parent of b7464b6 (Stable, did some logging improvements - ready for testing to be added)
   "success": true,
   "projectFilePath": "C:\\Users\\mrjoe\\OneDrive\\Writing a dissertation\\Documents\\GitHub\\CalculatorAPI\\CalculatorAPI.csproj",
   "expectedPackageFiles": [
